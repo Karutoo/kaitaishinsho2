@@ -48,6 +48,46 @@ URLを利用しクライアントからサーバへリクエストしてデー�
   example.jpg
   ```
 
+- **-X POST -d [データ]**
+
+  `-X POST`でHTTPメソッドをPOSTに指定し、`-d`オプションで送信するデータを設定することで、サーバーに対してデータの送信ができる。主にフォームの内容を送信する場合などに使われる。
+
+  実行例 [](変更しない)
+
+  ```bash
+  curl -X POST -d name=b2200520 https://httpbin.org/post
+  ```
+
+  実行結果 [](変更しない)
+
+  ```json
+  {
+    "args": {},
+    "data": "",
+    "files": {},
+    "form": {
+      "name": "b2200520"
+    },
+    "headers": {
+      "Content-Length": "15",
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Host": "httpbin.org",
+      "User-Agent": "curl/7.81.0"
+    },
+    "json": null,
+    "origin": "xxx.xxx.xxx.xxx",
+    "url": "https://httpbin.org/post"
+  }
+  ```
+
+  ### 解説
+
+  - `-X POST`: HTTPのPOSTメソッドでリクエストを送る。
+  - `-d name=b2200520`: `name` というキーで `b2200520` という値を送信している（フォームデータ形式）。
+  - `https://httpbin.org/post`: テスト用の受け口に対して送信。送った内容がそのまま返されるため、確認に使える。
+  - 結果の `"form"` 欄に送信内容が反映されている点がポイント。
+
+
 - **-X [http method]**
 
   引数 `[http method]` で指定したHTTPメソッドでリクエストを行うオプション。主に使用するメソッドは以下の通り。

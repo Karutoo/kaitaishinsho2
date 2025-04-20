@@ -85,6 +85,7 @@
 "pzstd"
 "rbash"
 "realpath"
+"sh"
 "sort"
 "sudo"
 "timedatectl"
